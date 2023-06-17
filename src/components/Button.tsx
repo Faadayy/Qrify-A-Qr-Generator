@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
   TextStyle,
 } from 'react-native'
-import { ACTIVEOPACITY, Colors } from '@constants'
+import Colors from 'constants/Colors'
 import { TextBold, TextRegular } from './Text'
 import { Touchable } from './Touchable'
 
@@ -59,12 +59,12 @@ const Button = ({
                   restProps.disabled && !primary
                     ? Colors.ui.disabledInactiveButton
                     : restProps.disabled
-                    ? Colors.ui.inactiveButton
-                    : primary
-                    ? Colors.ui.activeButton
-                    : warning
-                    ? Colors.ui.red
-                    : Colors.ui.white,
+                      ? Colors.ui.inactiveButton
+                      : primary
+                        ? Colors.ui.activeButton
+                        : warning
+                          ? Colors.ui.red
+                          : Colors.ui.white,
               },
               style,
             ]}>
@@ -84,8 +84,8 @@ const Button = ({
                         color: restProps.disabled
                           ? Colors.text.disableText
                           : primary || warning
-                          ? Colors.text.white
-                          : Colors.text.black,
+                            ? Colors.text.white
+                            : Colors.text.black,
                       },
                       textStyle,
                     ]}>
@@ -99,8 +99,8 @@ const Button = ({
                         color: restProps.disabled
                           ? Colors.text.disableText
                           : primary || warning
-                          ? Colors.text.white
-                          : Colors.text.black,
+                            ? Colors.text.white
+                            : Colors.text.black,
                       },
                       textStyle,
                     ]}>

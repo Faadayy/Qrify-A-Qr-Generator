@@ -5,10 +5,11 @@
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
+    "esModuleInterop": true,
     "paths": {
       "*": [
         "src/*",
-        "src/components/*"
+        "src/components/*",
       ]
     }
   }

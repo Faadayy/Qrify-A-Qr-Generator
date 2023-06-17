@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Nexa-Bold.ttf",
+      "sha1": "71e851309930cf02680a39ac7ebb5c56192676ec"
+    },
+    {
+      "path": "src/assets/fonts/Nexa-Light.ttf",
+      "sha1": "594a73f5f1979fcb1825ec0c6308487fdc14e228"
+    },
+    {
+      "path": "src/assets/fonts/Nexa-Regular.ttf",
+      "sha1": "e4e41122f679467839fec90be89589458a0b9aa5"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import {
   ViewStyle,
 } from 'react-native'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { Colors } from '@constants'
+import Colors from 'constants/Colors'
 import { Icon } from './Icon'
 import { TextRegular } from './Text'
 type TextInputProps = React.ComponentProps<typeof RNTextInput> & {

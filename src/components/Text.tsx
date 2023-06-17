@@ -10,18 +10,18 @@ const RNText = ({ animated, ...props }: TextProp) =>
   animated === true ? (
     <Animated.Text
       {...props}
-      style={[{ fontFamily: 'Jost-Bold' }, props.style]}
+      style={[{ fontFamily: 'Nexa-Bold' }, props.style]}
       numberOfLines={props.numberOfLines}
     />
   ) : (
-    <Text {...props} style={[{ fontFamily: 'Jost-Bold' }, props.style]} />
+    <Text {...props} style={[{ fontFamily: 'Nexa-Bold' }, props.style]} />
   )
 
 const TextRegular = (props: TextProp) => {
   return (
     <RNText
       {...props}
-      style={[{ fontFamily: 'Jost-Regular' }, props.style]}
+      style={[{ fontFamily: 'Nexa-Regular' }, props.style]}
       numberOfLines={props.numberOfLines}
 
     />
@@ -31,36 +31,20 @@ const TextBold = (props: TextProp) => {
   return (
     <RNText
       {...props}
-      style={[{ fontFamily: 'Jost-Bold' }, props.style]}
+      style={[{ fontFamily: 'Nexa-Bold' }, props.style]}
       numberOfLines={props.numberOfLines}
     />
   )
 }
-const TextMedium = (props: TextProp) => {
+
+const TextLight = (props: TextProp) => {
   return (
     <RNText
       {...props}
-      style={[{ fontFamily: 'Jost-Medium' }, props.style]}
+      style={[{ fontFamily: 'Nexa-Light' }, props.style]}
       numberOfLines={props.numberOfLines}
     />
   )
 }
-const TextThin = (props: TextProp) => {
-  return (
-    <RNText
-      {...props}
-      style={[{ fontFamily: 'Jost-Thin' }, props.style]}
-      numberOfLines={props.numberOfLines}
-    />
-  )
-}
-const TextItalic = (props: TextProp) => {
-  return (
-    <RNText
-      {...props}
-      style={[{ fontFamily: 'Jost-Italic' }, props.style]}
-      numberOfLines={props.numberOfLines}
-    />
-  )
-}
-export { TextRegular, TextBold, TextMedium, TextThin, TextItalic }
+
+export { TextRegular, TextBold, TextLight }

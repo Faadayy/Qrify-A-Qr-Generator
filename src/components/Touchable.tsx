@@ -1,4 +1,4 @@
-import { ACTIVEOPACITY, Colors } from '@constants'
+import Colors from 'constants/Colors'
 import React from 'react'
 import {
   StyleProp,
@@ -8,6 +8,8 @@ import {
   ViewStyle,
   View,
 } from 'react-native'
+
+
 type Props = React.ComponentProps<typeof TouchableOpacity> &
   React.ComponentProps<typeof TouchableNativeFeedback> & {
     children: React.ReactNode
@@ -34,7 +36,7 @@ const Touchable = ({
       {children}
     </TouchableNativeFeedback>
   ) : (
-    <TouchableOpacity style={style} {...rest} activeOpacity={ACTIVEOPACITY}>
+    <TouchableOpacity style={style} {...rest} >
       {children}
     </TouchableOpacity>
   )

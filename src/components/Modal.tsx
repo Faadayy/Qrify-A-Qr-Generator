@@ -1,3 +1,4 @@
+import Colors from 'constants/Colors'
 import React from 'react'
 import {
   Animated,
@@ -10,7 +11,7 @@ import {
 import { default as RNModal } from 'react-native-modal'
 
 import { widthPercentageToDP } from 'react-native-responsive-screen'
-import { Colors } from '@constants'
+// import { Colors } from 'constants'
 
 interface Props {
   visible: boolean

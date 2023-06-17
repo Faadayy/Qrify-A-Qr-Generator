@@ -10,9 +10,10 @@ module.exports = {
         // Note: you do not need to provide aliases for same-name paths immediately under /src/
         alias: {
           components: './src/components',
-          // tasks: './src/features/tasks',
+          // constantss: './src/constants',
         }
       }
-    ]
+    ],
+    "react-native-reanimated/plugin"
   ]
 }

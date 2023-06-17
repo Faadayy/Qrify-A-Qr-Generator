@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { logo } from "assets";
+import { useEffect, useRef, useState, ReactNode } from "react";
+import * as React from 'react'
 import { Animated, StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 export function WithSplashScreen({
   children,
@@ -75,8 +78,9 @@ export const Splash = ({ isAppReady }: { isAppReady: boolean }) => {
       collapsable={false}
       style={[style.container, { opacity: containerOpacity }]}
     >
+
       <Animated.Image
-        source={require("../assets/images/splash.png")}
+        source={logo}
         fadeDuration={0}
         onLoad={() => {
           setState(FADE_IN_IMAGE);
@@ -92,12 +96,12 @@ export const Splash = ({ isAppReady }: { isAppReady: boolean }) => {
 const style = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: '#F4C27F',
+    backgroundColor: '#4F709C',
     alignItems: "center",
     justifyContent: "center",
   },
   image: {
-    width: 250,
-    height: 250,
+    width: RFValue(250),
+    height: RFValue(250),
   },
 });
