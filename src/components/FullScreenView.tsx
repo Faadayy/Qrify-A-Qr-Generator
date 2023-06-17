@@ -14,7 +14,7 @@ const FullScreenView = ({ style, children }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.ui.background,
+    backgroundColor: Colors.ui.white,
   },
 })
 export { FullScreenView }

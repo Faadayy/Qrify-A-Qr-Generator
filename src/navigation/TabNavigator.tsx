@@ -26,13 +26,13 @@ const Tabs = () => {
             screenOptions={{
                 tabBarShowLabel: false,
                 tabBarStyle: {
-                    position: 'absolute',
-                    bottom: heightPercentageToDP(2),
-                    left: widthPercentageToDP(5),
-                    right: widthPercentageToDP(5),
+                    // position: 'absolute',
+                    // bottom: heightPercentageToDP(2),
+                    // left: widthPercentageToDP(5),
+                    // right: widthPercentageToDP(5),
                     elevation: 0,
                     backgroundColor: '#4F709C',
-                    borderRadius: 15,
+                    // borderRadius: 15,
                     height: heightPercentageToDP(9),
                     ...styles.shadow
                 }
@@ -47,7 +47,7 @@ const Tabs = () => {
                         {
                             justifyContent: 'center', alignItems: 'center',
                             backgroundColor: focused && '#4F709C',
-                            bottom: focused ? heightPercentageToDP(2) : 0
+                            bottom: focused ? heightPercentageToDP(3) : 0
                         }]}>
                             <GenerateIcon />
                             <TextBold style={styles.tabText}>Create</TextBold>
@@ -65,7 +65,7 @@ const Tabs = () => {
                         {
                             justifyContent: 'center', alignItems: 'center',
                             backgroundColor: focused && '#4F709C',
-                            bottom: focused ? heightPercentageToDP(2) : 0
+                            bottom: focused ? heightPercentageToDP(3) : 0
                         }]}>
                             <ScanIcon />
                             <TextBold style={styles.tabText}>Scan</TextBold>
@@ -82,7 +82,7 @@ const Tabs = () => {
                         {
                             justifyContent: 'center', alignItems: 'center',
                             backgroundColor: focused && '#4F709C',
-                            bottom: focused ? heightPercentageToDP(2) : 0
+                            bottom: focused ? heightPercentageToDP(3) : 0
                         }]}>
                             <SettingsIcon />
                             <TextBold style={styles.tabText}>Settings</TextBold>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     tabText: {
-        color: '#F5EFE7',
+        color: '#FFF',
         lineHeight: heightPercentageToDP(2)
         // backgroundColor: 'red',
         // paddingVertical: 10

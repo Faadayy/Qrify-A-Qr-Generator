@@ -1,7 +1,7 @@
 
 const PRIMARY_COLOR = '#213555'
 const LIGHT_BLUE = '#4F709C'
-const LIGHT_GRAY = '#F1F2F6'
+const LIGHT_GRAY = '#213555'
 const SEMI_LIGHT_GRAY = '#D9D9D9'
 const SEMI_DARK_GRAY = '#9E9E9E'
 const GRAY = '#C0C0C0'
@@ -33,7 +33,7 @@ export default {
         green: GREEN,
     },
     ui: {
-        background: LIGHT_GRAY,
+        background: '#F5EFE7',
         textInputBorder: GRAY,
         white: WHITE,
         whiteLight: WHITE_LIGHT,
@@ -42,7 +42,7 @@ export default {
         inactiveButton: SEMI_DARK_GRAY,
         disabledInactiveButton: SEMI_LIGHT_GRAY,
         black: BLACK,
-        rippleEffect: BLACK01,
+        rippleEffect: WHITE01,
         rippleEffectWhite: WHITE05,
         primary: PRIMARY_COLOR,
         sectionDivider: SEMI_LIGHT_GRAY,
