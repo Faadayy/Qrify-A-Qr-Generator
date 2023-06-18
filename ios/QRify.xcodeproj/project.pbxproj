@@ -14,9 +14,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-QRify-QRifyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-QRify-QRifyTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		6179B18AC8A1495ABEC8CDFE /* Nexa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635C539C1C314B4191DC92A0 /* Nexa-Bold.ttf */; };
-		CCD2FB142E8B462AA3F41D38 /* Nexa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A57FF2D63E1D423FB8EA0782 /* Nexa-Light.ttf */; };
-		76086F688293462DB898BDC7 /* Nexa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5402632324D472296B37975 /* Nexa-Regular.ttf */; };
+		137619BA7B584FE09E51A8B6 /* Nexa-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8410C1F729F94A2E93967F3C /* Nexa-Bold.otf */; };
+		0EEB7AF7EB7049789191BBC9 /* Nexa-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB8C756E5D74AFAB925E03C /* Nexa-Light.otf */; };
+		2363A6029D074E64858EAB7E /* Nexa-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBB818854F804ABCBB14EB5F /* Nexa-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +47,9 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = QRify/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-QRify-QRifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRify-QRifyTests.release.xcconfig"; path = "Target Support Files/Pods-QRify-QRifyTests/Pods-QRify-QRifyTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		635C539C1C314B4191DC92A0 /* Nexa-Bold.ttf */ = {isa = PBXFileReference; name = "Nexa-Bold.ttf"; path = "../src/assets/fonts/Nexa-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A57FF2D63E1D423FB8EA0782 /* Nexa-Light.ttf */ = {isa = PBXFileReference; name = "Nexa-Light.ttf"; path = "../src/assets/fonts/Nexa-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C5402632324D472296B37975 /* Nexa-Regular.ttf */ = {isa = PBXFileReference; name = "Nexa-Regular.ttf"; path = "../src/assets/fonts/Nexa-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8410C1F729F94A2E93967F3C /* Nexa-Bold.otf */ = {isa = PBXFileReference; name = "Nexa-Bold.otf"; path = "../src/assets/fonts/Nexa-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4EB8C756E5D74AFAB925E03C /* Nexa-Light.otf */ = {isa = PBXFileReference; name = "Nexa-Light.otf"; path = "../src/assets/fonts/Nexa-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BBB818854F804ABCBB14EB5F /* Nexa-Regular.otf */ = {isa = PBXFileReference; name = "Nexa-Regular.otf"; path = "../src/assets/fonts/Nexa-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +158,9 @@
 		C4F17459CD2047C29B627E0A /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				635C539C1C314B4191DC92A0 /* Nexa-Bold.ttf */,
-				A57FF2D63E1D423FB8EA0782 /* Nexa-Light.ttf */,
-				C5402632324D472296B37975 /* Nexa-Regular.ttf */,
+				8410C1F729F94A2E93967F3C /* Nexa-Bold.otf */,
+				4EB8C756E5D74AFAB925E03C /* Nexa-Light.otf */,
+				BBB818854F804ABCBB14EB5F /* Nexa-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -262,9 +262,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				6179B18AC8A1495ABEC8CDFE /* Nexa-Bold.ttf in Resources */,
-				CCD2FB142E8B462AA3F41D38 /* Nexa-Light.ttf in Resources */,
-				76086F688293462DB898BDC7 /* Nexa-Regular.ttf in Resources */,
+				137619BA7B584FE09E51A8B6 /* Nexa-Bold.otf in Resources */,
+				0EEB7AF7EB7049789191BBC9 /* Nexa-Light.otf in Resources */,
+				2363A6029D074E64858EAB7E /* Nexa-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

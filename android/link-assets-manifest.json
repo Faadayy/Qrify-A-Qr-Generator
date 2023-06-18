@@ -2,16 +2,16 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/Nexa-Bold.ttf",
-      "sha1": "71e851309930cf02680a39ac7ebb5c56192676ec"
+      "path": "src/assets/fonts/Nexa-Bold.otf",
+      "sha1": "9304fa53ba726ecc05ae0d3191013cb07284c113"
     },
     {
-      "path": "src/assets/fonts/Nexa-Light.ttf",
-      "sha1": "594a73f5f1979fcb1825ec0c6308487fdc14e228"
+      "path": "src/assets/fonts/Nexa-Light.otf",
+      "sha1": "842b31ac5675a235ba24ab12b4e377c8c5789ed6"
     },
     {
-      "path": "src/assets/fonts/Nexa-Regular.ttf",
-      "sha1": "e4e41122f679467839fec90be89589458a0b9aa5"
+      "path": "src/assets/fonts/Nexa-Regular.otf",
+      "sha1": "fab53a0445e1cb7fc28c54e36ac257cc29e667dd"
     }
   ]
 }

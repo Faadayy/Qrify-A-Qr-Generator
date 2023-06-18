@@ -8,7 +8,13 @@ import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
 import GeneralCards from './components/GeneralCards'
 import SocialCard from './components/SocialCard'
 
-const HomeScreen = () => {
+type Item = {
+    id: number
+    name: string
+    icon: string
+}
+
+const HomeScreen = ({ navigation }) => {
 
     const generalData = [
         { id: 1, name: 'Text', icon: 'text' },
@@ -28,8 +34,8 @@ const HomeScreen = () => {
         { id: 6, name: 'Twitter', icon: 'twitter' },
     ]
 
-    const HandlePress = (item) => {
-        console.log({ item })
+    const HandlePress = (item: Item) => {
+        navigation.navigate('GenerationScreen', item)
     }
 
 

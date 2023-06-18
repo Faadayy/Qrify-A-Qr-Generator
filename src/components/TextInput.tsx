@@ -14,15 +14,16 @@ type TextInputProps = React.ComponentProps<typeof RNTextInput> & {
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
   touched?: boolean
+  multiline?: boolean
+  numberOfLines?: number
   error?: string
   containerStyle?: StyleProp<ViewStyle>
   optionalText?: string
+  secureTextEntry?: boolean
+  setSecureTextEntry?: any
 }
 
 const TextInput = (props: TextInputProps) => {
-  const [secureTextEntry, setSecureTextEntry] = useState(
-    props.secureTextEntry || false,
-  )
   return (
     <View style={styles.mainContainer}>
       <View style={[styles.container, props.containerStyle]}>
@@ -35,7 +36,7 @@ const TextInput = (props: TextInputProps) => {
         <View style={[styles.textInputContainer]}>
           <RNTextInput
             {...props}
-            secureTextEntry={secureTextEntry}
+            secureTextEntry={props.secureTextEntry}
             style={[styles.textInput, props.style]}
             placeholderTextColor={
               props.placeholderTextColor || Colors.text.placeholderColor
@@ -43,16 +44,16 @@ const TextInput = (props: TextInputProps) => {
             autoCorrect={props.autoCorrect ?? false}
           />
         </View>
-        {props.secureTextEntry ? (
+        {props.optionalText === 'password' ? (
           <View style={[styles.rightIconContainer]}>
             {
               <Icon
                 type="FontAwesome"
-                name={secureTextEntry ? 'eye-slash' : 'eye'}
+                name={props.secureTextEntry ? 'eye-slash' : 'eye'}
                 size={RFValue(20)}
                 color={Colors.icon.textInputIcon}
                 onPress={() => {
-                  setSecureTextEntry(prev => !prev)
+                  props.setSecureTextEntry(prev => !prev)
                 }}
               />
             }
@@ -66,7 +67,7 @@ const TextInput = (props: TextInputProps) => {
       {props.touched && props.error && (
         <TextRegular style={styles.errorMessage}>{props.error}</TextRegular>
       )}
-      {props.optionalText && (
+      {(props.optionalText && props.optionalText !== 'password') && (
         <View style={styles.optionalContainer}>
           <TextRegular style={styles.optionalMessage}>
             {props.optionalText}
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '100%',
-    height: 55,
+    // height: 55,
     borderRadius: 10,
     borderColor: Colors.ui.textInputBorder,
     flexDirection: 'row',
@@ -95,10 +96,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.ui.white,
   },
   textInput: {
-    height: '100%',
+    // height: '50%',
     fontSize: RFValue(14),
     color: Colors.text.black,
-    fontFamily: 'Jost-Regular',
+    fontFamily: 'Nexa-Regular',
   },
   leftIconContainer: {
     flex: 1.5,
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
   },
   leftIconSubContainer: {
     width: '100%',
-    height: '100%',
+    // height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -130,7 +131,7 @@ const styles = StyleSheet.create({
     color: Colors.text.error,
     marginTop: 2,
     marginLeft: 5,
-    fontSize: 12,
+    fontSize: RFValue(12),
   },
   optionalContainer: { flexDirection: 'row', justifyContent: 'space-between' },
   optionalMessage: {

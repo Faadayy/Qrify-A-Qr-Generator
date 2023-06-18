@@ -41,8 +41,6 @@ const SocialCard = ({ data, handlePress }) => {
         }
     }
 
-
-
     const renderItem = ({ item }) => (
         <TouchableOpacity onPress={() => { handlePress(item) }}>
             <View style={styles.iconContainer}>

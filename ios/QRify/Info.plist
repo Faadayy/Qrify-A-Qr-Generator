@@ -53,9 +53,9 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Nexa-Bold.ttf</string>
-		<string>Nexa-Light.ttf</string>
-		<string>Nexa-Regular.ttf</string>
+		<string>Nexa-Bold.otf</string>
+		<string>Nexa-Light.otf</string>
+		<string>Nexa-Regular.otf</string>
 	</array>
 </dict>
 </plist>
