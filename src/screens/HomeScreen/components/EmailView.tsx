@@ -1,18 +1,26 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import { TextInput, TextLight, TextRegular, Touchable } from 'components'
+import { ErrorToast, InfoToast, SuccessToast, TextInput, TextLight, TextRegular, Touchable } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
+import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
 
 const EmailView = () => {
     const [email, setEmail] = useState('')
     const [error, seterror] = useState(false)
-    const [height, setHeight] = useState(0);
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const handlePress = () => {
+        // SuccessToast('Heyyy', 5000)
+        Toast.show({
+            title: 'SUCCESS',
+            description: 'message',
+            type: ToastType.SUCCESS,
+            visibilityTime: 3000,
+        })
+
         seterror(false)
         if (email && !(/^ *$/.test(email)) && emailPattern.test(email)) {
             // QR Generate Hook

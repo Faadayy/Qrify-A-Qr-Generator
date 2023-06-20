@@ -3,6 +3,8 @@ import * as React from 'react'
 import 'react-native-gesture-handler';
 import { WithSplashScreen } from "./src/screens/splashScreen/SplashScreen";
 import RootNavigator from './src/navigation/TabNavigator'
+import { NavigationContainer } from "@react-navigation/native";
+import { ToastComponent } from "@iqorlobanov/react-native-toast";
 
 
 export default function App() {
@@ -17,6 +19,7 @@ export default function App() {
   return (
     <WithSplashScreen isAppReady={isAppReady}>
       <RootNavigator />
+      <ToastComponent />
     </WithSplashScreen>
   );
 

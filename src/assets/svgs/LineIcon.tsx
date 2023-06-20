@@ -7,13 +7,13 @@ const LineIcon = (props: any) => (
         fill="none"
         width={RFValue(30)}
         height={RFValue(30)}
-        stroke="#213555"
+        stroke={props.color ? props.color : "#213555"}
         viewBox="0 0 24 24"
         style={{ marginRight: -5 }}
         {...props}
     >
         <Path
-            stroke="#213555"
+            stroke={props.color ? props.color : "#213555"}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}

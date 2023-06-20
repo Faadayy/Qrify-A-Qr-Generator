@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Animated, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { FullScreenView, SuccessToast, TextBold, Touchable, } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -27,6 +27,7 @@ const GenerationScreen = ({ navigation, route }) => {
 
     return (
         <FullScreenView>
+
             <View style={styles.headerView}>
                 <Touchable onPress={() => navigation.goBack()}>
                     <BackIcon />

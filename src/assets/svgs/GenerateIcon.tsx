@@ -6,8 +6,8 @@ const GenerateIcon = (props: any) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
         data-name="Layer 1"
-        width={RFValue(25)}
-        height={RFValue(25)}
+        width={props.isFocused ? RFValue(30) : RFValue(25)}
+        height={props.isFocused ? RFValue(30) : RFValue(25)}
         viewBox="0 0 24 24"
         {...props}
     >

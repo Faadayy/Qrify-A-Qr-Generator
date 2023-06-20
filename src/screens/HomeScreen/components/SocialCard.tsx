@@ -15,6 +15,7 @@ import FacebookIcon from 'assets/svgs/FacebookIcon';
 import LinkedInIcon from 'assets/svgs/LinkedInIcon';
 import InstagramIcon from 'assets/svgs/InstagramIcon';
 import TwitterIcon from 'assets/svgs/TwitterIcon';
+import LineIcon from 'assets/svgs/LineIcon';
 
 
 type Icon = {
@@ -52,8 +53,12 @@ const SocialCard = ({ data, handlePress }) => {
 
     return (
         <View style={styles.cardContainer}>
-            <TextRegular style={styles.headerText}>Social</TextRegular>
+            {/* <TextRegular style={styles.headerText}>Social</TextRegular> */}
             <View style={styles.flatListContainer}>
+                <View style={styles.headerView}>
+                    <LineIcon color={'#fff'} />
+                    <TextBold style={styles.headerText}>Social</TextBold>
+                </View>
                 <FlatList
                     data={data}
                     numColumns={3}
@@ -75,14 +80,19 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: RFValue(15),
-        color: '#213555',
-        marginLeft: RFValue(5)
+        color: '#fff',
+        marginLeft: RFValue(-5)
     },
     flatListContainer: {
         backgroundColor: '#4F709C',
         paddingHorizontal: widthPercentageToDP(2),
         paddingVertical: heightPercentageToDP(1),
         borderRadius: 10,
+    },
+    headerView: {
+        // alignSelf: 'center',
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     iconContainer: {
         flex: 1,
