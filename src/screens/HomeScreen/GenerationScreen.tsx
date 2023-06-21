@@ -7,12 +7,14 @@ import LineIcon from 'assets/svgs/LineIcon'
 import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
 import GeneralCards from './components/GeneralCards'
 import SocialCard from './components/SocialCard'
+import TextView from './components/SubComponents/TextView'
+import URLView from './components/SubComponents/SocialView'
+import EmailView from './components/SubComponents/EmailView'
+import MessageView from './components/SubComponents/MessageView'
+import WifiView from './components/SubComponents/WifiView'
 import BackIcon from 'assets/svgs/BackIcon'
-import TextView from './components/TextView'
-import URLView from './components/URLView'
-import EmailView from './components/EmailView'
-import MessageView from './components/MessageView'
-import WifiView from './components/WifiView'
+import SocialView from './components/SubComponents/SocialView'
+
 
 type Item = {
     id: number
@@ -43,6 +45,7 @@ const GenerationScreen = ({ navigation, route }) => {
                 {item === 'email' && <EmailView />}
                 {item === 'message' && <MessageView />}
                 {item === 'wifi' && <WifiView />}
+                {['youtube', 'whatsapp', 'linkedin', 'facebook', 'twitter', 'instagram'].includes(item) && <SocialView item={item} />}
             </View>
 
         </FullScreenView >

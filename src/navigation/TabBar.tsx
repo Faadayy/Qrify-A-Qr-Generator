@@ -98,7 +98,7 @@ const TabIcon = ({ label, isFocused, index }) => {
 
     useEffect(() => {
         if (isFocused) {
-            translateIcon(-24)
+            translateIcon(-20)
         } else {
             translateIcon(0)
         }

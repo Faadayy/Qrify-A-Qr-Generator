@@ -17,3 +17,6 @@ export * from './YoutubeIcon'
 export * from './LinkedInIcon'
 export * from './InstagramIcon'
 export * from './TwitterIcon'
+
+
+export * from './LockIcon'

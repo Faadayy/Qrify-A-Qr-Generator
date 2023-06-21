@@ -6,56 +6,40 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 
-const WifiView = () => {
-    const [wifiName, setWifiName] = useState('')
-    const [password, setPassword] = useState('')
+const SocialView = ({ item }) => {
+    const [url, setUrl] = useState('')
     const [error, seterror] = useState(false)
-    const [wifiError, setwifiError] = useState(false)
     const [height, setHeight] = useState(0);
-    const [secureTextEntry, setSecureTextEntry] = useState(true)
+
+    console.log({ item })
 
     const handlePress = () => {
         seterror(false)
-        setwifiError(false)
-        if (wifiName && !(/^ *$/.test(wifiName))) {
-            if (password && !(/^ *$/.test(password))) {
-                // QR Generate Hook
-
-            }
-            else {
-                seterror(true)
-            }
+        if (url && !(/^ *$/.test(url))) {
+            // QR Generate Hook
         } else {
-            setwifiError(true)
+            seterror(true)
         }
     }
 
     return (
         <View style={styles.container}>
             <TextInput
-                placeholder='Enter network name'
-                value={wifiName}
-                onChangeText={setWifiName}
-                maxLength={30}
-                error='Please enter network name'
-                touched={wifiError}
-            />
-            <TextInput
-                placeholder='Enter Password'
-                value={password}
-                onChangeText={setPassword}
-                maxLength={30}
-                setSecureTextEntry={setSecureTextEntry}
-                secureTextEntry={secureTextEntry}
-                error='Please enter a password'
-                touched={error}
-                optionalText='password'
+                placeholder='Enter Link'
                 style={{
                     fontFamily: 'Nexa-Regular',
-                    // height: Math.max(50, height),
+                    height: Math.max(50, height) <= heightPercentageToDP(20) ? Math.max(50, height) : heightPercentageToDP(20),
                 }}
-            // multiline={true}
-            // numberOfLines={4}
+                value={url}
+                onChangeText={setUrl}
+                multiline={true}
+                numberOfLines={4}
+                maxLength={180}
+                error='Please enter a link first'
+                touched={error}
+                onContentSizeChange={event => {
+                    setHeight(event.nativeEvent.contentSize.height);
+                }}
             />
             <TouchableOpacity style={styles.textButton} onPress={handlePress}>
                 <TextRegular style={styles.generateButton}>Generate</TextRegular>
@@ -64,7 +48,7 @@ const WifiView = () => {
     )
 }
 
-export default WifiView
+export default SocialView
 
 const styles = StyleSheet.create({
     container: {

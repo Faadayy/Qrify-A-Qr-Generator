@@ -63,6 +63,10 @@ const SocialCard = ({ data, handlePress }) => {
                     data={data}
                     numColumns={3}
                     renderItem={renderItem}
+                    contentContainerStyle={{
+                        alignItems: 'center',
+                        // backgroundColor: 'red'
+                    }}
                     keyExtractor={(item) => item.id.toString()}
                 />
             </View>
@@ -72,6 +76,7 @@ const SocialCard = ({ data, handlePress }) => {
 
 export default SocialCard
 
+
 const styles = StyleSheet.create({
     cardContainer: {
         paddingHorizontal: widthPercentageToDP(2),
@@ -79,20 +84,22 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     headerText: {
-        fontSize: RFValue(15),
+        fontSize: RFValue(18),
         color: '#fff',
-        marginLeft: RFValue(-5)
+        // marginLeft: RFValue(-5)
     },
     flatListContainer: {
+        // alignItems: 'center',
         backgroundColor: '#4F709C',
         paddingHorizontal: widthPercentageToDP(2),
         paddingVertical: heightPercentageToDP(1),
         borderRadius: 10,
     },
     headerView: {
-        // alignSelf: 'center',
+        paddingHorizontal: widthPercentageToDP(4),
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        // alignSelf: 'flex-start'
     },
     iconContainer: {
         flex: 1,
@@ -108,3 +115,4 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
 });
+
