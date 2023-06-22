@@ -6,17 +6,23 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 
-const SocialView = ({ item }) => {
+const SocialView = ({ item, handleLink }) => {
     const [url, setUrl] = useState('')
     const [error, seterror] = useState(false)
     const [height, setHeight] = useState(0);
 
-    console.log({ item })
+    function validateURL(url) {
+        if (/^(?:(?:https?:\/\/)|(?:www\.)?)([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?:\/.*)?$/i.test(url)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     const handlePress = () => {
         seterror(false)
-        if (url && !(/^ *$/.test(url))) {
-            // QR Generate Hook
+        if (url && validateURL(url)) {
+            handleLink(url)
         } else {
             seterror(true)
         }

@@ -7,23 +7,15 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
 
-const EmailView = () => {
+const EmailView = ({ handleLink }) => {
     const [email, setEmail] = useState('')
     const [error, seterror] = useState(false)
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const handlePress = () => {
-        // SuccessToast('Heyyy', 5000)
-        Toast.show({
-            title: 'SUCCESS',
-            description: 'message',
-            type: ToastType.SUCCESS,
-            visibilityTime: 3000,
-        })
-
         seterror(false)
         if (email && !(/^ *$/.test(email)) && emailPattern.test(email)) {
-            // QR Generate Hook
+            handleLink(email)
         } else {
             seterror(true)
         }

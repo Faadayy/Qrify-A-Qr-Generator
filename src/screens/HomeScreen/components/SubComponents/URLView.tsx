@@ -6,15 +6,23 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 
-const URLView = () => {
+const URLView = ({ handleLink }) => {
     const [url, setUrl] = useState('')
     const [error, seterror] = useState(false)
     const [height, setHeight] = useState(0);
 
+    function validateURL(url) {
+        if (/^(?:(?:https?:\/\/)|(?:www\.)?)([a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,})(?:\/.*)?$/i.test(url)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     const handlePress = () => {
         seterror(false)
-        if (url && !(/^ *$/.test(url))) {
-            // QR Generate Hook
+        if (url && validateURL(url)) {
+            handleLink(url)
         } else {
             seterror(true)
         }
@@ -33,7 +41,7 @@ const URLView = () => {
                 multiline={true}
                 numberOfLines={4}
                 maxLength={180}
-                error='Please enter a url first'
+                error='Please enter a valid url first'
                 touched={error}
                 onContentSizeChange={event => {
                     setHeight(event.nativeEvent.contentSize.height);

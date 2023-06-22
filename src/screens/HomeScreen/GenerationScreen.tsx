@@ -1,31 +1,24 @@
-import { Animated, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { FullScreenView, SuccessToast, TextBold, Touchable, } from 'components'
+import { StyleSheet, View } from 'react-native'
+import React, { useState } from 'react'
+import { FullScreenView, TextBold, Touchable, } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import LineIcon from 'assets/svgs/LineIcon'
-import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
-import GeneralCards from './components/GeneralCards'
-import SocialCard from './components/SocialCard'
 import TextView from './components/SubComponents/TextView'
-import URLView from './components/SubComponents/SocialView'
 import EmailView from './components/SubComponents/EmailView'
 import MessageView from './components/SubComponents/MessageView'
 import WifiView from './components/SubComponents/WifiView'
 import BackIcon from 'assets/svgs/BackIcon'
 import SocialView from './components/SubComponents/SocialView'
-
-
-type Item = {
-    id: number
-    name: string
-    icon: string
-}
+import URLView from './components/SubComponents/URLView'
 
 const GenerationScreen = ({ navigation, route }) => {
     const item = route.params.icon
+    const [link, setLink] = useState('')
 
-    console.log({ a: route.params })
+    const handleLink = (val) => {
+        console.log({ item, val })
+    }
 
     return (
         <FullScreenView>
@@ -40,12 +33,13 @@ const GenerationScreen = ({ navigation, route }) => {
                 </TextBold>
             </View>
             <View style={styles.subContainer}>
-                {item === 'text' && <TextView />}
-                {item === 'url' && <URLView />}
-                {item === 'email' && <EmailView />}
-                {item === 'message' && <MessageView />}
-                {item === 'wifi' && <WifiView />}
-                {['youtube', 'whatsapp', 'linkedin', 'facebook', 'twitter', 'instagram'].includes(item) && <SocialView item={item} />}
+                {item === 'text' && <TextView handleLink={handleLink} />}
+                {item === 'url' && <URLView handleLink={handleLink} />}
+                {item === 'email' && <EmailView handleLink={handleLink} />}
+                {item === 'message' && <MessageView item={item} handleLink={handleLink} />}
+                {item === 'whatsapp' && <MessageView item={item} handleLink={handleLink} />}
+                {item === 'wifi' && <WifiView handleLink={handleLink} />}
+                {['youtube', 'linkedin', 'facebook', 'twitter', 'instagram'].includes(item) && <SocialView item={item} handleLink={handleLink} />}
             </View>
 
         </FullScreenView >

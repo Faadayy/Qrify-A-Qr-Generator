@@ -8,7 +8,9 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "android-connect": "adb reverse tcp:8081 tcp:8081"
+    "android-connect": "adb reverse tcp:8081 tcp:8081",
+    "android:clean": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/test",
+    "clean-all": "watchman watch-del-all && killall -9 node && rm -rf yarn.lock package-lock.json node_modules ios/Pods ios/Podfile.lock android/app/build && yarn install && cd ios && pod update && cd .."
   },
   "dependencies": {
     "@iqorlobanov/react-native-toast": "^0.5.1",
@@ -27,6 +29,7 @@
     "react-native-gesture-handler": "^2.12.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-modal": "^13.0.1",
+    "react-native-phone-number-input": "^2.1.0",
     "react-native-reanimated": "2.14.4",
     "react-native-responsive-fontsize": "^0.5.1",
     "react-native-responsive-screen": "^1.4.2",

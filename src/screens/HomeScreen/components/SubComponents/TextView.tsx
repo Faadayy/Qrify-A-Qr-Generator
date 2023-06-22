@@ -6,16 +6,19 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 
-const TextView = () => {
+const TextView = ({ handleLink }) => {
     const [text, setText] = useState('')
     const [error, seterror] = useState(false)
     const [height, setHeight] = useState(0);
 
     const handlePress = () => {
         seterror(false)
-        if (text && (/^ *$/.test(text))) {
-            // QR Generate Hook
+        if (text) {
+            console.log('first')
+            handleLink(text)
         } else {
+            console.log('second')
+
             seterror(true)
         }
     }
