@@ -8,3 +8,4 @@ export * from './Touchable';
 export * from './Toast';
 export * from './Modal';
 export * from './PhoneInput';
+export * from './Swiper';

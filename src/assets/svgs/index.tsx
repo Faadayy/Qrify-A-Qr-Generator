@@ -20,3 +20,5 @@ export * from './TwitterIcon'
 
 
 export * from './LockIcon'
+export * from './ShareIcon'
+export * from './DownloadIcon'
