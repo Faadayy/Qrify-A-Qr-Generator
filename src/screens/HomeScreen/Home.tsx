@@ -35,7 +35,6 @@ const HomeScreen = ({ navigation }) => {
     ]
 
     const HandlePress = (item: Item) => {
-        // console.log('first')
         navigation.navigate('GenerationScreen', item)
     }
 
@@ -58,7 +57,7 @@ const HomeScreen = ({ navigation }) => {
     )
 }
 
-export default HomeScreen
+export { HomeScreen }
 
 const styles = StyleSheet.create({
     headerView: {

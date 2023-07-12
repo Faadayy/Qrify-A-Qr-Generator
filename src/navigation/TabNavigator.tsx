@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 import HomeScreen from './HomeScreenNavigator'
-import ScanScreen from 'screens/ScanScreen'
-import Settings from 'screens/Settings'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBar from './TabBar';
 import GenerateIcon from 'assets/svgs/GenerateIcon'
 import SettingsIcon from 'assets/svgs/SettingsIcon'
 import ScanIcon from 'assets/svgs/ScanIcon'
-import Animated, { Layout, SlideInRight } from 'react-native-reanimated'
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native'
+import { ScanScreen, Settings } from 'screens';
 
 
 const Tab = createBottomTabNavigator();

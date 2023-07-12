@@ -40,7 +40,6 @@ const GeneralCards = ({ data, handlePress }) => {
 
 
     const renderItem = ({ item }) => {
-        console.log({ item })
         return (<TouchableOpacity onPress={() => { handlePress(item) }} disabled={item.name === 'VCard' ? true : false} >
             <View style={styles.iconContainer}>
                 {renderIcon(item)}

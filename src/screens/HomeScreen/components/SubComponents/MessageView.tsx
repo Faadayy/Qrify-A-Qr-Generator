@@ -18,7 +18,6 @@ const MessageView = ({ item, handleLink, setloading }) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneInput = useRef<RNPhoneInput>(null)
 
-    console.log(item)
     const handlePress = () => {
         setloading(true)
         seterror(false)

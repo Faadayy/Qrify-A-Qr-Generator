@@ -1,9 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from 'screens/HomeScreen/Home'
-import GenerationScreen from 'screens/HomeScreen/GenerationScreen'
-import Settings from 'screens/Settings'
+import { GenerationScreen, HomeScreen } from 'screens';
 
 const Stack = createStackNavigator();
 const HomeScreenNavigator = () => {

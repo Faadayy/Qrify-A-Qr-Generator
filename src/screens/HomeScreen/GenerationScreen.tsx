@@ -1,5 +1,5 @@
 import { ActivityIndicator, FlatList, Keyboard, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { createRef, useEffect, useRef, useState } from 'react'
 import { FullScreenView, Modal, Swiper, TextBold, TextRegular, Touchable, } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
@@ -15,6 +15,9 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import DownloadIcon from 'assets/svgs/DownloadIcon'
 import ShareIcon from 'assets/svgs/ShareIcon'
 import { QRStyles0, QRStyles1, QRStyles2, QRStyles3, QRStyles4, QRStyles5 } from './components/QRCodeStyles'
+import ViewShot from "react-native-view-shot";
+import { saveQrToDisk } from 'constants/SaveQrToDisk'
+import { ShareQr } from 'constants/ShareQR'
 
 const GenerationScreen = ({ navigation, route }) => {
     const item = route.params.icon
@@ -24,13 +27,9 @@ const GenerationScreen = ({ navigation, route }) => {
     const [showQR, setShowQR] = useState(false)
     const [loading, setloading] = useState(false)
     let ref = useRef()
-    const handleLink = (val) => {
-        setLink(val)
-        setTimeout(() => {
-            setShowQR(true)
-            Keyboard.dismiss()
-        }, 1000);
-    }
+    // let viewShotRef = useRef<any>()
+    const viewShotRefs = useRef([]);
+
 
     const QRStyles = [
         { value: <QRStyles0 value={link} />, type: "Basic" },
@@ -40,6 +39,19 @@ const GenerationScreen = ({ navigation, route }) => {
         { value: <QRStyles4 value={link} />, type: "Premium " },
         { value: <QRStyles5 value={link} />, type: "Galaxy " },
     ]
+
+    const handleLink = (val) => {
+        setLink(val)
+        setTimeout(() => {
+            setShowQR(true)
+            Keyboard.dismiss()
+        }, 1000);
+    }
+
+    useEffect(() => {
+        viewShotRefs.current = new Array(QRStyles.length).fill(0).map((_, index) => viewShotRefs.current[index] || createRef());
+    }, [QRStyles]);
+
 
     useEffect(() => {
         setShowQR(false)
@@ -58,16 +70,19 @@ const GenerationScreen = ({ navigation, route }) => {
     }, []);
 
     const renderItem = ({ item, index }) => {
+        const viewShotRef = viewShotRefs.current[index];
         return (
             <View style={styles.itemsContainer}>
-                <View style={{}}>
-                    {item.value}
-                </View>
+                <ViewShot ref={viewShotRef}>
+                    <View style={{}}>
+                        {item.value}
+                    </View>
+                </ViewShot>
                 <View style={[styles.buttonsContainer]}>
-                    <TouchableOpacity style={styles.buttonsStyle} onPress={() => handleDownload(item)}>
+                    <TouchableOpacity style={styles.buttonsStyle} onPress={() => handleDownload(index)}>
                         <DownloadIcon />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonsStyle} onPress={() => handleShare(item)}>
+                    <TouchableOpacity style={styles.buttonsStyle} onPress={() => handleShare(index)}>
                         <ShareIcon />
                     </TouchableOpacity>
                 </View>
@@ -77,11 +92,12 @@ const GenerationScreen = ({ navigation, route }) => {
 
 
 
-    const handleDownload = (val) => {
-        console.log("download", val)
+    const handleDownload = async (val: number) => {
+        await saveQrToDisk(viewShotRefs.current[val])
     }
 
-    const handleShare = (val) => {
+    const handleShare = async (val: number) => {
+        await ShareQr(viewShotRefs.current[val])
         console.log("share", val)
     }
 
@@ -125,7 +141,7 @@ const GenerationScreen = ({ navigation, route }) => {
                             itemWidth={widthPercentageToDP(70)}
                             renderItem={renderItem}
                             layoutCardOffset={9}
-                            onSnapToItem={index => setactiveIndex(index)}
+                            onSnapToItem={(index: number) => setactiveIndex(index)}
                         />
                         <Pagination
                             dotsLength={QRStyles.length}
@@ -160,7 +176,7 @@ const GenerationScreen = ({ navigation, route }) => {
     )
 }
 
-export default GenerationScreen
+export { GenerationScreen }
 
 const styles = StyleSheet.create({
     headerView: {
