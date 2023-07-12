@@ -1,22 +1,25 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useState } from 'react'
-import { ErrorToast, InfoToast, SuccessToast, TextInput, TextLight, TextRegular, Touchable } from 'components'
+import { TextInput, TextRegular } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import Colors from 'constants/Colors'
-import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
 
-const EmailView = ({ handleLink }) => {
+const EmailView = ({ handleLink, setloading }) => {
     const [email, setEmail] = useState('')
     const [error, seterror] = useState(false)
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const handlePress = () => {
+        setloading(true)
         seterror(false)
         if (email && !(/^ *$/.test(email)) && emailPattern.test(email)) {
+            setTimeout(() => {
+                setloading(false)
+            }, 3000);
             handleLink(email)
         } else {
+            setloading(false)
             seterror(true)
         }
     }

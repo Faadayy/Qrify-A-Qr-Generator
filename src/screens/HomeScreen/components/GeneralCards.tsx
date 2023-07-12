@@ -39,14 +39,15 @@ const GeneralCards = ({ data, handlePress }) => {
 
 
 
-    const renderItem = ({ item }) => (
-        <TouchableOpacity onPress={() => { handlePress(item) }}>
+    const renderItem = ({ item }) => {
+        console.log({ item })
+        return (<TouchableOpacity onPress={() => { handlePress(item) }} disabled={item.name === 'VCard' ? true : false} >
             <View style={styles.iconContainer}>
                 {renderIcon(item)}
                 <TextLight style={{ marginTop: 8, color: '#fff', lineHeight: RFValue(15), fontSize: RFValue(12) }}>{item.name}</TextLight>
             </View>
-        </TouchableOpacity>
-    );
+        </TouchableOpacity >)
+    };
 
     return (
         <View style={styles.cardContainer}>

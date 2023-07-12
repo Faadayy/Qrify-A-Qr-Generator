@@ -8,7 +8,7 @@ import Colors from 'constants/Colors'
 import DropDownPicker from 'react-native-dropdown-picker'
 import LockIcon from 'assets/svgs/LockIcon'
 
-const WifiView = ({ handleLink }) => {
+const WifiView = ({ handleLink, setloading }) => {
     const [wifiName, setWifiName] = useState('')
     const [password, setPassword] = useState('')
     const [error, seterror] = useState(false)
@@ -48,17 +48,23 @@ const WifiView = ({ handleLink }) => {
     }, []);
 
     const handlePress = () => {
+        setloading(true)
         seterror(false)
         setwifiError(false)
         if (wifiName && !(/^ *$/.test(wifiName))) {
             if (password && !(/^ *$/.test(password))) {
-                let MessageV = `SSID:${wifiName}|pass:${password}|protocol:${value}`
+                let MessageV = `WIFI:S:${wifiName};T:${value};P:${password};H:false;;`
+                setTimeout(() => {
+                    setloading(false)
+                }, 3000);
                 handleLink(MessageV)
             }
             else {
+                setloading(false)
                 seterror(true)
             }
         } else {
+            setloading(false)
             setwifiError(true)
         }
     }

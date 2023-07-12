@@ -16,7 +16,6 @@ import type { PropsWithChildren } from 'react';
 import type { ViewStyle } from 'react-native';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native'
 const ref = createNavigationContainerRef();
-type FadeInViewProps = PropsWithChildren<{ style: ViewStyle }>;
 
 const Tabs = () => {
 

@@ -19,7 +19,7 @@ interface Props {
   mainContainerStyle?: StyleProp<ViewStyle>
   subContainerStyle?: StyleProp<ViewStyle>
   overlayStyle?: StyleProp<ViewStyle>
-  handleCloseModal: () => void
+  handleCloseModal?: () => void
   avoidKeyboard?: boolean
   onModalHide?: () => void
 }

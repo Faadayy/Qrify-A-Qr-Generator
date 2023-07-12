@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 
-const SocialView = ({ item, handleLink }) => {
+const SocialView = ({ item, handleLink, setloading }) => {
     const [url, setUrl] = useState('')
     const [error, seterror] = useState(false)
     const [height, setHeight] = useState(0);
@@ -20,10 +20,15 @@ const SocialView = ({ item, handleLink }) => {
     }
 
     const handlePress = () => {
+        setloading(true)
         seterror(false)
         if (url && validateURL(url)) {
+            setTimeout(() => {
+                setloading(false)
+            }, 3000);
             handleLink(url)
         } else {
+            setloading(false)
             seterror(true)
         }
     }

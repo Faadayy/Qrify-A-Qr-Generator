@@ -35,6 +35,7 @@ const HomeScreen = ({ navigation }) => {
     ]
 
     const HandlePress = (item: Item) => {
+        // console.log('first')
         navigation.navigate('GenerationScreen', item)
     }
 

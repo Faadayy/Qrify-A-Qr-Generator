@@ -1,6 +1,6 @@
-import { FlatList, Keyboard, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, FlatList, Keyboard, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
-import { FullScreenView, Swiper, TextBold, Touchable, } from 'components'
+import { FullScreenView, Modal, Swiper, TextBold, TextRegular, Touchable, } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import LineIcon from 'assets/svgs/LineIcon'
@@ -21,11 +21,15 @@ const GenerationScreen = ({ navigation, route }) => {
     const [activeIndex, setactiveIndex] = useState(0)
     const [link, setLink] = useState('jnk biwea ')
     const [keyboardOpened, setKeyboardOpened] = useState(false)
+    const [showQR, setShowQR] = useState(false)
+    const [loading, setloading] = useState(false)
     let ref = useRef()
     const handleLink = (val) => {
-        console.log({ item, val })
         setLink(val)
-        Keyboard.dismiss()
+        setTimeout(() => {
+            setShowQR(true)
+            Keyboard.dismiss()
+        }, 1000);
     }
 
     const QRStyles = [
@@ -38,17 +42,15 @@ const GenerationScreen = ({ navigation, route }) => {
     ]
 
     useEffect(() => {
+        setShowQR(false)
         const keyboardDidShowListener = Keyboard.addListener(
-            'keyboardDidShow',
-            () => {
+            'keyboardDidShow', () => {
+                setShowQR(false)
                 setKeyboardOpened(true)
             }
         );
         const keyboardDidHideListener = Keyboard.addListener(
-            'keyboardDidHide',
-            () => {
-                setKeyboardOpened(false)
-            }
+            'keyboardDidHide', () => setKeyboardOpened(false)
         );
         return () => {
             keyboardDidShowListener.remove();
@@ -58,9 +60,6 @@ const GenerationScreen = ({ navigation, route }) => {
     const renderItem = ({ item, index }) => {
         return (
             <View style={styles.itemsContainer}>
-                {/* <View style={styles.QRType}>
-                    <TextBold style={{ fontSize: RFValue(17), textAlign: 'center' }}>{item.type}</TextBold>
-                </View> */}
                 <View style={{}}>
                     {item.value}
                 </View>
@@ -98,50 +97,65 @@ const GenerationScreen = ({ navigation, route }) => {
                     {route.params.name}
                 </TextBold>
             </View>
-            <View style={{ flex: 1 }}>
-                <View style={styles.subContainer}>
-                    {item === 'text' && <TextView handleLink={handleLink} />}
-                    {item === 'url' && <URLView handleLink={handleLink} />}
-                    {item === 'email' && <EmailView handleLink={handleLink} />}
-                    {item === 'message' && <MessageView item={item} handleLink={handleLink} />}
-                    {item === 'whatsapp' && <MessageView item={item} handleLink={handleLink} />}
-                    {item === 'wifi' && <WifiView handleLink={handleLink} />}
-                    {['youtube', 'linkedin', 'facebook', 'twitter', 'instagram'].includes(item) && <SocialView item={item} handleLink={handleLink} />}
-                </View>
-                {!keyboardOpened && <View style={styles.lowerSubContainer}>
-                    <View>
-                        <TextBold style={[styles.header, { textAlign: 'center' }]}>QR Codes</TextBold>
+            <ScrollView>
+                <View style={{}}>
+                    <View style={styles.subContainer}>
+                        {item === 'text' && <TextView handleLink={handleLink} setloading={setloading} />}
+                        {item === 'url' && <URLView handleLink={handleLink} setloading={setloading} />}
+                        {item === 'email' && <EmailView handleLink={handleLink} setloading={setloading} />}
+                        {item === 'message' && <MessageView item={item} handleLink={handleLink} setloading={setloading} />}
+                        {item === 'whatsapp' && <MessageView item={item} handleLink={handleLink} setloading={setloading} />}
+                        {item === 'wifi' && <WifiView handleLink={handleLink} setloading={setloading} />}
+                        {['youtube', 'linkedin', 'facebook', 'twitter', 'instagram'].includes(item) && <SocialView item={item} handleLink={handleLink} setloading={setloading} />}
                     </View>
-                    <Carousel
-                        layout={"default"}
-                        ref={ref}
-                        data={QRStyles}
-                        sliderWidth={300}
-                        itemWidth={widthPercentageToDP(70)}
-                        renderItem={renderItem}
-                        layoutCardOffset={9}
-                        onSnapToItem={index => setactiveIndex(index)}
-                    />
-                    <Pagination
-                        dotsLength={QRStyles.length}
-                        activeDotIndex={activeIndex}
-                        carouselRef={ref}
-                        tappableDots={true}
-                        dotStyle={{
-                            width: 10,
-                            height: 10,
-                            borderRadius: 5,
-                            backgroundColor: 'rgba(0, 0, 0, 0.92)'
-                        }}
-                        inactiveDotStyle={{
-                            // Define styles for inactive dots here
-                        }}
-                        inactiveDotOpacity={0.4}
-                        inactiveDotScale={0.6}
-                    />
-                </View>}
-            </View>
 
+                </View>
+                {!keyboardOpened && showQR &&
+                    <View style={styles.lowerSubContainer}>
+                        <View>
+                            <TextBold style={[styles.header, {
+                                textAlign: 'center', marginBottom: heightPercentageToDP(2), color: '#fff'
+                            }]}>QR Codes</TextBold>
+                        </View>
+                        <Carousel
+                            layout={"default"}
+                            ref={ref}
+                            data={QRStyles}
+                            sliderWidth={300}
+                            itemWidth={widthPercentageToDP(70)}
+                            renderItem={renderItem}
+                            layoutCardOffset={9}
+                            onSnapToItem={index => setactiveIndex(index)}
+                        />
+                        <Pagination
+                            dotsLength={QRStyles.length}
+                            activeDotIndex={activeIndex}
+                            carouselRef={ref}
+                            tappableDots={true}
+                            dotStyle={{
+                                width: 10,
+                                height: 10,
+                                borderRadius: 5,
+                                backgroundColor: 'rgba(255, 255, 255, 0.92)'
+                            }}
+                            inactiveDotStyle={{
+                                // Define styles for inactive dots here
+                            }}
+                            inactiveDotOpacity={0.4}
+                            inactiveDotScale={0.6}
+                        />
+                    </View>}
+                <Modal
+                    visible={loading}
+                    subContainerStyle={{ width: '50%', paddingVertical: heightPercentageToDP(2), justifyContent: 'center', alignItems: 'center' }}
+                >
+                    <View >
+                        <ActivityIndicator size={'large'} color={'#000'} />
+                        <TextBold style={{ fontSize: RFValue(13), marginTop: 13 }}>Generating QR </TextBold>
+
+                    </View>
+                </Modal>
+            </ScrollView>
         </FullScreenView >
     )
 }
@@ -152,26 +166,29 @@ const styles = StyleSheet.create({
     headerView: {
         marginVertical: heightPercentageToDP(2),
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     header: {
         color: '#213555',
         fontSize: RFValue(22),
-        lineHeight: heightPercentageToDP(4)
+        lineHeight: heightPercentageToDP(4),
     },
     cardsSection: {
         marginHorizontal: widthPercentageToDP(2),
     },
     subContainer: {
-        flex: 1,
         marginVertical: heightPercentageToDP(3),
         marginHorizontal: widthPercentageToDP(5),
     },
     lowerSubContainer: {
-        flex: 3,
-        alignSelf: 'center',
-        // backgroundColor: 'red',
-        // height: '60%'
+        alignItems: 'center',
+        backgroundColor: '#213555',
+        padding: 5,
+        borderRadius: 10,
+        paddingVertical: heightPercentageToDP(2),
+        paddingHorizontal: widthPercentageToDP(3),
+        marginHorizontal: widthPercentageToDP(5),
+
     },
     itemsContainer: {
         alignSelf: 'center',
@@ -180,7 +197,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.1)',
         borderRadius: 8,
         elevation: 2,
-        shadowColor: 'black',
+        shadowColor: 'white',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 2,

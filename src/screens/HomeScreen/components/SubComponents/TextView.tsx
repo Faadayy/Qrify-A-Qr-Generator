@@ -1,27 +1,29 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput, TextRegular, Touchable } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import Colors from 'constants/Colors'
 
-const TextView = ({ handleLink }) => {
+const TextView = ({ handleLink, setloading }) => {
     const [text, setText] = useState('')
     const [error, seterror] = useState(false)
     const [height, setHeight] = useState(0);
 
     const handlePress = () => {
+        setloading(true)
         seterror(false)
         if (text) {
-            console.log('first')
+            setTimeout(() => {
+                setloading(false)
+            }, 3000);
             handleLink(text)
         } else {
-            console.log('second')
-
+            setloading(false)
             seterror(true)
         }
     }
+
 
     return (
         <View style={styles.container}>
@@ -42,7 +44,7 @@ const TextView = ({ handleLink }) => {
                     setHeight(event.nativeEvent.contentSize.height);
                 }}
             />
-            <TouchableOpacity style={styles.textButton} onPress={handlePress}>
+            <TouchableOpacity style={[styles.textButton, { height: heightPercentageToDP(6) }]} onPress={handlePress}>
                 <TextRegular style={styles.generateButton}>Generate</TextRegular>
             </TouchableOpacity>
         </View>
@@ -63,7 +65,9 @@ const styles = StyleSheet.create({
     textButton: {
         backgroundColor: '#4F709C',
         paddingVertical: heightPercentageToDP(1.5),
-        borderRadius: 5
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     generateButton: {
         color: '#fff',

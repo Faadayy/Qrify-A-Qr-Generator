@@ -7,7 +7,7 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import Colors from 'constants/Colors'
 import RNPhoneInput from 'react-native-phone-number-input'
 
-const MessageView = ({ item, handleLink }) => {
+const MessageView = ({ item, handleLink, setloading }) => {
     const [message, setMessage] = useState('')
     const [number, setNumber] = useState('')
     const [field, setFieldValue] = useState('')
@@ -18,19 +18,30 @@ const MessageView = ({ item, handleLink }) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneInput = useRef<RNPhoneInput>(null)
 
-    console.log({ item })
+    console.log(item)
     const handlePress = () => {
+        setloading(true)
         seterror(false)
         setnumberError(false)
         if (number && !(/^ *$/.test(number)) && (number.length > 8 && number.length < 14)) {
             if (message && !(/^ *$/.test(message))) {
-                let MessageV = `number:${number}|message:${message}`
+                let MessageV = '';
+                if (item === 'whatsapp') {
+                    MessageV = `whatsappNumber:${number}|message:${message}`
+                } else {
+                    MessageV = `number:${number}|message:${message}`
+                }
+                setTimeout(() => {
+                    setloading(false)
+                }, 3000);
                 handleLink(MessageV)
             }
             else {
+                setloading(false)
                 seterror(true)
             }
         } else {
+            setloading(false)
             setnumberError(true)
         }
     }
