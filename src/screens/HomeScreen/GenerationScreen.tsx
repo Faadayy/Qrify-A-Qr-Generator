@@ -1,23 +1,15 @@
-import { ActivityIndicator, FlatList, Keyboard, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Keyboard, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import React, { createRef, useEffect, useRef, useState } from 'react'
-import { FullScreenView, Modal, Swiper, TextBold, TextRegular, Touchable, } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
-import LineIcon from 'assets/svgs/LineIcon'
-import TextView from './components/SubComponents/TextView'
-import EmailView from './components/SubComponents/EmailView'
-import MessageView from './components/SubComponents/MessageView'
-import WifiView from './components/SubComponents/WifiView'
-import BackIcon from 'assets/svgs/BackIcon'
-import SocialView from './components/SubComponents/SocialView'
-import URLView from './components/SubComponents/URLView'
-import Carousel, { Pagination } from 'react-native-snap-carousel';
-import DownloadIcon from 'assets/svgs/DownloadIcon'
-import ShareIcon from 'assets/svgs/ShareIcon'
-import { QRStyles0, QRStyles1, QRStyles2, QRStyles3, QRStyles4, QRStyles5 } from './components/QRCodeStyles'
 import ViewShot from "react-native-view-shot";
-import { saveQrToDisk } from 'constants/SaveQrToDisk'
-import { ShareQr } from 'constants/ShareQR'
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { FullScreenView, Modal, TextBold, Touchable, } from 'components'
+import { QRStyles0, QRStyles1, QRStyles2, QRStyles3, QRStyles4, QRStyles5 } from './components/QRCodeStyles'
+import { BackIcon, DownloadIcon, LineIcon, ShareIcon } from 'assets'
+import { EmailView, MessageView, SocialView, TextView, WifiView } from './components/SubComponents'
+import { URLView } from './components/SubComponents/URLView'
+import { ShareQr, saveQrToDisk } from 'helpers'
 
 const GenerationScreen = ({ navigation, route }) => {
     const item = route.params.icon
@@ -27,7 +19,6 @@ const GenerationScreen = ({ navigation, route }) => {
     const [showQR, setShowQR] = useState(false)
     const [loading, setloading] = useState(false)
     let ref = useRef()
-    // let viewShotRef = useRef<any>()
     const viewShotRefs = useRef([]);
 
 
@@ -66,6 +57,7 @@ const GenerationScreen = ({ navigation, route }) => {
         );
         return () => {
             keyboardDidShowListener.remove();
+            keyboardDidHideListener.remove();
         };
     }, []);
 
@@ -79,12 +71,13 @@ const GenerationScreen = ({ navigation, route }) => {
                     </View>
                 </ViewShot>
                 <View style={[styles.buttonsContainer]}>
-                    <TouchableOpacity style={styles.buttonsStyle} onPress={() => handleDownload(index)}>
+
+                    <Touchable style={[styles.buttonsStyle]} rippleEffect='#213555' onPress={() => handleDownload(index)}>
                         <DownloadIcon />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonsStyle} onPress={() => handleShare(index)}>
+                    </Touchable>
+                    <Touchable style={[styles.buttonsStyle]} rippleEffect='#213555' onPress={() => handleShare(index)}>
                         <ShareIcon />
-                    </TouchableOpacity>
+                    </Touchable>
                 </View>
             </View>
         );
@@ -98,14 +91,13 @@ const GenerationScreen = ({ navigation, route }) => {
 
     const handleShare = async (val: number) => {
         await ShareQr(viewShotRefs.current[val])
-        console.log("share", val)
     }
 
     return (
         <FullScreenView>
 
             <View style={styles.headerView}>
-                <Touchable onPress={() => navigation.goBack()}>
+                <Touchable rippleEffect='white' style={{ marginLeft: 10 }} onPress={() => navigation.goBack()}>
                     <BackIcon />
                 </Touchable>
                 <LineIcon />

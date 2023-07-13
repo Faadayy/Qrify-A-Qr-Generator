@@ -1,10 +1,8 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import { heightPercentageToDP } from "react-native-responsive-screen"
-import Svg, { Path } from "react-native-svg"
-const EmailIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const EmailIcon = (props: SvgProps) => (
     <Svg
-        // style={{ marginBottom: heightPercentageToDP(05) }}
         xmlns="http://www.w3.org/2000/svg"
         xmlSpace="preserve"
         width={RFValue(26)}
@@ -18,4 +16,4 @@ const EmailIcon = (props: any) => (
         />
     </Svg>
 )
-export default EmailIcon
+export { EmailIcon }

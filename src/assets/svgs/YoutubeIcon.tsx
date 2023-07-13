@@ -1,12 +1,11 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-const YoutubeIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const YoutubeIcon = (props: SvgProps) => (
     <Svg
         height={RFValue(25)}
         width={RFValue(25)}
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 -3 20 20" {...props}>
+        viewBox="0 -3 20 20" {...props}>
         <Path
             fill="#fff"
             fillRule="evenodd"
@@ -14,4 +13,4 @@ const YoutubeIcon = (props: any) => (
         />
     </Svg>
 )
-export default YoutubeIcon
+export { YoutubeIcon }

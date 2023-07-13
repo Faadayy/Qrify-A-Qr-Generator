@@ -1,9 +1,8 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Rect, Circle, Ellipse, Path } from "react-native-svg"
-const URLIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const URLIcon = (props: SvgProps) => (
     <Svg
-        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 60 60"
         height={RFValue(30)}
         width={RFValue(30)}
@@ -28,4 +27,4 @@ const URLIcon = (props: any) => (
         />
     </Svg>
 )
-export default URLIcon
+export { URLIcon }

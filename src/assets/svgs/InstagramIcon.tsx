@@ -1,12 +1,12 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
+import Svg, { Path, SvgProps } from "react-native-svg"
 /* SVGR has dropped some elements not supported by react-native-svg: title */
-const InstagramIcon = (props) => (
+const InstagramIcon = (props: SvgProps) => (
     <Svg
         height={RFValue(20)}
         width={RFValue(20)}
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" {...props}>
+        viewBox="0 0 20 20" {...props}>
         <Path
             fill="#fff"
             fillRule="evenodd"
@@ -14,4 +14,4 @@ const InstagramIcon = (props) => (
         />
     </Svg>
 )
-export default InstagramIcon
+export { InstagramIcon }

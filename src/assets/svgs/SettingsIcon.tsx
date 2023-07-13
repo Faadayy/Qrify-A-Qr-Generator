@@ -1,6 +1,6 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { G, Path } from "react-native-svg"
+import Svg, { Path } from "react-native-svg"
 const SettingsIcon = (props: any) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
@@ -16,4 +16,4 @@ const SettingsIcon = (props: any) => (
         />
     </Svg>
 )
-export default SettingsIcon
+export { SettingsIcon }

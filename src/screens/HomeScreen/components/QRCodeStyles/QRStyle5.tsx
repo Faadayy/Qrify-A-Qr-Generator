@@ -1,22 +1,8 @@
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import QRCodeStyled, {
-  INNER_EYE_SIZE_IN_BITS,
-  isCoordsOfInnerEyes,
-  isCoordsOfOuterEyes,
-  OUTER_EYE_SIZE_IN_BITS,
-  RenderCustomPieceItem,
-  SVGGradient,
-  SVGQRCodeStyledProps,
-} from 'react-native-qrcode-styled'; import { TextBold, Touchable } from 'components'
-import { RFValue } from 'react-native-responsive-fontsize'
-import { widthPercentageToDP } from 'react-native-responsive-screen'
-import { Path, Svg, Defs, G, } from 'react-native-svg'
+import QRCodeStyled from 'react-native-qrcode-styled';
 
-function circlePath(cx: number, cy: number, r: number): string {
-  return `M ${cx} ${cy} m -${r}, 0 a ${r},${r} 0 1,0 ${r * 2},0 a ${r},${r} 0 1,0 -${r * 2},0`;
-}
 const QRStyles5 = ({ value }) => {
 
 

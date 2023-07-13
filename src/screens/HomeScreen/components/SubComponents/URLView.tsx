@@ -4,7 +4,7 @@ import { TextInput, TextLight, TextRegular, Touchable } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 
 const URLView = ({ handleLink, setloading }) => {
     const [url, setUrl] = useState('')
@@ -53,24 +53,26 @@ const URLView = ({ handleLink, setloading }) => {
                 }}
             />
             <View style={{ flexDirection: 'row', marginBottom: heightPercentageToDP(2) }}>
-                <TouchableOpacity style={styles.buttonurl} onPress={() => { setUrl(url + 'https://') }}>
+                <Touchable style={styles.buttonurl} onPress={() => { setUrl(url + 'https://') }}>
                     <TextRegular style={{ color: '#000' }}>https://</TextRegular>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonurl} onPress={() => { setUrl(url + 'www.') }}>
+                </Touchable>
+                <Touchable style={styles.buttonurl} onPress={() => { setUrl(url + 'www.') }}>
                     <TextRegular style={{ color: '#000' }}>www.</TextRegular>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonurl} onPress={() => { setUrl(url + '.com') }}>
+                </Touchable>
+                <Touchable style={styles.buttonurl} onPress={() => { setUrl(url + '.com') }}>
                     <TextRegular style={{ color: '#000' }}>.com</TextRegular>
-                </TouchableOpacity>
+                </Touchable>
             </View>
-            <TouchableOpacity style={styles.textButton} onPress={handlePress}>
-                <TextRegular style={styles.generateButton}>Generate</TextRegular>
-            </TouchableOpacity>
+            <View style={{ borderRadius: 5, overflow: 'hidden' }}>
+                <Touchable rippleEffect='white' style={styles.textButton} onPress={handlePress}>
+                    <TextRegular style={styles.generateButton}>Generate</TextRegular>
+                </Touchable>
+            </View>
         </View>
     )
 }
 
-export default URLView
+export { URLView }
 
 const styles = StyleSheet.create({
     container: {

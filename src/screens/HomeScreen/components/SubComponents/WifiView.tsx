@@ -4,7 +4,7 @@ import { TextInput, TextLight, TextRegular, Touchable } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 import DropDownPicker from 'react-native-dropdown-picker'
 import LockIcon from 'assets/svgs/LockIcon'
 
@@ -108,15 +108,17 @@ const WifiView = ({ handleLink, setloading }) => {
                         setItems={setItems}
                     />
                 </View>
-                <TouchableOpacity style={styles.textButton} onPress={handlePress}>
-                    <TextRegular style={styles.generateButton}>Generate</TextRegular>
-                </TouchableOpacity>
+                <View style={{ borderRadius: 5, overflow: 'hidden', marginTop: heightPercentageToDP(2) }}>
+                    <Touchable rippleEffect='white' style={styles.textButton} onPress={handlePress}>
+                        <TextRegular style={styles.generateButton}>Generate</TextRegular>
+                    </Touchable>
+                </View>
             </View>
         </View>
     )
 }
 
-export default WifiView
+export { WifiView }
 
 const styles = StyleSheet.create({
     container: {
@@ -130,7 +132,6 @@ const styles = StyleSheet.create({
     textButton: {
         backgroundColor: '#4F709C',
         paddingVertical: heightPercentageToDP(1.5),
-        marginTop: heightPercentageToDP(2),
         borderRadius: 5
     },
     generateButton: {

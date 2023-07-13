@@ -1,7 +1,6 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
 import Svg, { SvgProps, G, Rect, Path } from "react-native-svg"
-/* SVGR has dropped some elements not supported by react-native-svg: title */
 const LockIcon = (props: SvgProps) => (
     <Svg viewBox="0 0 24 24" width={RFValue(25)} height={RFValue(25)} {...props}>
         <G
@@ -16,4 +15,4 @@ const LockIcon = (props: SvgProps) => (
         </G>
     </Svg>
 )
-export default LockIcon
+export { LockIcon }

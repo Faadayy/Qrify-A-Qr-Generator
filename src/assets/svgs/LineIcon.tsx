@@ -1,9 +1,8 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
-const LineIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const LineIcon = (props: SvgProps) => (
     <Svg
-        xmlns="http://www.w3.org/2000/svg"
         fill="none"
         width={RFValue(30)}
         height={RFValue(30)}
@@ -22,5 +21,5 @@ const LineIcon = (props: any) => (
     </Svg>
 
 )
-export default LineIcon
+export { LineIcon }
 

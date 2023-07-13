@@ -4,7 +4,7 @@ import { PhoneInput, TextInput, TextLight, TextRegular, Touchable } from 'compon
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 import RNPhoneInput from 'react-native-phone-number-input'
 
 const MessageView = ({ item, handleLink, setloading }) => {
@@ -73,14 +73,16 @@ const MessageView = ({ item, handleLink, setloading }) => {
                 multiline={true}
                 numberOfLines={4}
             />
-            <TouchableOpacity style={styles.textButton} onPress={handlePress}>
-                <TextRegular style={styles.generateButton}>Generate</TextRegular>
-            </TouchableOpacity>
+            <View style={{ borderRadius: 5, overflow: 'hidden' }}>
+                <Touchable rippleEffect='white' style={styles.textButton} onPress={handlePress}>
+                    <TextRegular style={styles.generateButton}>Generate</TextRegular>
+                </Touchable>
+            </View>
         </View>
     )
 }
 
-export default MessageView
+export { MessageView }
 
 const styles = StyleSheet.create({
     container: {

@@ -1,16 +1,9 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, FlatList, } from 'react-native'
 import React from 'react'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
-import { TextBold, TextLight, TextRegular, Touchable } from 'components';
+import { TextBold, TextLight, Touchable } from 'components';
 import { RFValue } from 'react-native-responsive-fontsize';
-import URLIcon from 'assets/svgs/URLIcon';
-import TextIcon from 'assets/svgs/TextIcon';
-import EmailIcon from 'assets/svgs/EmailIcon';
-import WhatsAppIcon from 'assets/svgs/WhatsappIcon';
-import VCardIcon from 'assets/svgs/VCardIcon';
-import WifiIcon from 'assets/svgs/WifiIcon';
-import MessageIcon from 'assets/svgs/MessageIcon';
-import LineIcon from 'assets/svgs/LineIcon';
+import { EmailIcon, LineIcon, MessageIcon, TextIcon, URLIcon, VCardIcon, WifiIcon } from 'assets';
 
 
 type Icon = {
@@ -40,12 +33,21 @@ const GeneralCards = ({ data, handlePress }) => {
 
 
     const renderItem = ({ item }) => {
-        return (<TouchableOpacity onPress={() => { handlePress(item) }} disabled={item.name === 'VCard' ? true : false} >
-            <View style={styles.iconContainer}>
-                {renderIcon(item)}
-                <TextLight style={{ marginTop: 8, color: '#fff', lineHeight: RFValue(15), fontSize: RFValue(12) }}>{item.name}</TextLight>
+        return (
+            <View style={{ overflow: 'hidden', borderRadius: 15, margin: 16, }}>
+                <Touchable
+                    rippleEffect='white'
+                    onPress={() => { handlePress(item) }}
+                    disabled={item.name === 'VCard' ? true : false}
+                >
+                    <View style={styles.iconContainer}>
+                        {renderIcon(item)}
+                        <TextLight style={{ marginTop: 8, color: '#fff', lineHeight: RFValue(15), fontSize: RFValue(12) }}>{item.name}</TextLight>
+                    </View>
+                </Touchable >
             </View>
-        </TouchableOpacity >)
+
+        )
     };
 
     return (
@@ -58,10 +60,6 @@ const GeneralCards = ({ data, handlePress }) => {
                 <FlatList
                     data={data}
                     numColumns={3}
-                    contentContainerStyle={{
-                        alignItems: 'center',
-                        // backgroundColor: 'red'
-                    }}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()}
                 />
@@ -100,9 +98,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 16,
         backgroundColor: '#213555',
-        marginHorizontal: 16,
         height: RFValue(70),
         width: RFValue(70),
 

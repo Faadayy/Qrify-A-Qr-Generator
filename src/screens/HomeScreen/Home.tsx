@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import { FullScreenView, SuccessToast, TextBold, Touchable, } from 'components'
+import { FullScreenView, TextBold, } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
-import LineIcon from 'assets/svgs/LineIcon'
-import { Toast, ToastType } from '@iqorlobanov/react-native-toast'
 import GeneralCards from './components/GeneralCards'
 import SocialCard from './components/SocialCard'
+import { LineIcon } from 'assets'
 
 type Item = {
     id: number

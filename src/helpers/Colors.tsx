@@ -16,7 +16,7 @@ const CARD_PRIMARY = '#001529'
 const BLACK01 = 'rgba(0,0,0,0.1)'
 const BLACK07 = 'rgba(0,0,0,0.7)'
 const WHITE05 = 'rgba(256,256,256,0.5)'
-const WHITE01 = 'rgba(256,256,256,0.1)'
+const WHITE01 = '#213555'
 const WHITE03 = 'rgba(256,256,256,0.3)'
 
 export default {

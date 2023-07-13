@@ -15,4 +15,4 @@ const DownloadIcon = (props: SvgProps) => (
     </Svg>
 )
 
-export default DownloadIcon
+export { DownloadIcon }

@@ -7,7 +7,7 @@ import {
 import { CountryCode } from 'react-native-country-picker-modal'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { TextRegular } from './Text'
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 type TextInputProps = PhoneInputProps & {
   touched?: boolean
   error?: string

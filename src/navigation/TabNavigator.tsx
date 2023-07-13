@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import HomeScreen from './HomeScreenNavigator'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import TabBar from './TabBar';
-import GenerateIcon from 'assets/svgs/GenerateIcon'
-import SettingsIcon from 'assets/svgs/SettingsIcon'
-import ScanIcon from 'assets/svgs/ScanIcon'
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native'
-import { ScanScreen, Settings } from 'screens';
+import { HomeScreenNavigator, ScanScreenStack, SettingScreenStack } from './Stack';
+import { GenerateIcon, ScanIcon, SettingsIcon } from 'assets';
 
 
 const Tab = createBottomTabNavigator();
@@ -22,14 +19,14 @@ const TabNavigator: React.FC = () => {
             id: 1,
             name: 'Generate',
             label: 'Generate',
-            component: HomeScreen,
+            component: HomeScreenNavigator,
             icon: <GenerateIcon />
         },
         {
             id: 2,
             name: 'Scan',
             label: 'Scan',
-            component: ScanScreen,
+            component: ScanScreenStack,
             icon: <ScanIcon />
 
         },
@@ -37,7 +34,7 @@ const TabNavigator: React.FC = () => {
             id: 3,
             name: 'Settings',
             label: 'Settings',
-            component: Settings,
+            component: SettingScreenStack,
             icon: <SettingsIcon />
 
         },
@@ -57,7 +54,7 @@ const TabNavigator: React.FC = () => {
                 tabBar={(props) =>
                     <TabBar {...props} hide={hide}
                     />}
-                initialRouteName={'Home'}
+                initialRouteName={'Generate'}
                 screenOptions={{
                     headerShown: false,
                     tabBarStyle: { display: hide ? "none" : "flex" }
@@ -73,7 +70,6 @@ const TabNavigator: React.FC = () => {
                                 tabBarLabel: _.label,
                                 tabBarIcon: {
                                     icon: _.icon,
-
                                 },
                             }}
                         />

@@ -4,7 +4,7 @@ import { TextInput, TextLight, TextRegular, Touchable } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 
 const SocialView = ({ item, handleLink, setloading }) => {
     const [url, setUrl] = useState('')
@@ -52,14 +52,16 @@ const SocialView = ({ item, handleLink, setloading }) => {
                     setHeight(event.nativeEvent.contentSize.height);
                 }}
             />
-            <TouchableOpacity style={styles.textButton} onPress={handlePress}>
-                <TextRegular style={styles.generateButton}>Generate</TextRegular>
-            </TouchableOpacity>
+            <View style={{ borderRadius: 5, overflow: 'hidden' }}>
+                <Touchable rippleEffect='white' style={styles.textButton} onPress={handlePress}>
+                    <TextRegular style={styles.generateButton}>Generate</TextRegular>
+                </Touchable>
+            </View>
         </View>
     )
 }
 
-export default SocialView
+export { SocialView }
 
 const styles = StyleSheet.create({
     container: {

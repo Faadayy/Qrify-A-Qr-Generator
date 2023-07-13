@@ -3,9 +3,9 @@ import Svg, { Path, SvgProps } from "react-native-svg"
 const BackIcon = (props: SvgProps) => (
     <Svg
         fill="none"
-        width={40}
-        height={40}
-        style={{ marginLeft: 10 }}
+        width={45}
+        height={45}
+
         viewBox="0 0 24 24"
         {...props}
     >
@@ -15,4 +15,4 @@ const BackIcon = (props: SvgProps) => (
         />
     </Svg>
 )
-export default BackIcon
+export { BackIcon }

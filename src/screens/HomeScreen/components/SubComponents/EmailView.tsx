@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 import React, { useState } from 'react'
-import { TextInput, TextRegular } from 'components'
+import { TextInput, TextRegular, Touchable } from 'components'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { RFValue } from 'react-native-responsive-fontsize'
@@ -39,24 +39,26 @@ const EmailView = ({ handleLink, setloading }) => {
                 touched={error}
             />
             <View style={{ flexDirection: 'row', marginBottom: heightPercentageToDP(2) }}>
-                <TouchableOpacity style={styles.buttonurl} onPress={() => { setEmail(email + '@yahoo.com') }}>
+                <Touchable style={styles.buttonurl} onPress={() => { setEmail(email + '@yahoo.com') }}>
                     <TextRegular style={{ color: '#000' }}>@yahoo.com</TextRegular>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonurl} onPress={() => { setEmail(email + '@gmail.com') }}>
+                </Touchable>
+                <Touchable style={styles.buttonurl} onPress={() => { setEmail(email + '@gmail.com') }}>
                     <TextRegular style={{ color: '#000' }}>@gmail.com</TextRegular>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonurl} onPress={() => { setEmail(email + '.com') }}>
+                </Touchable>
+                <Touchable style={styles.buttonurl} onPress={() => { setEmail(email + '.com') }}>
                     <TextRegular style={{ color: '#000' }}>.com</TextRegular>
-                </TouchableOpacity>
+                </Touchable>
             </View>
-            <TouchableOpacity style={styles.textButton} onPress={handlePress}>
-                <TextRegular style={styles.generateButton}>Generate</TextRegular>
-            </TouchableOpacity>
+            <View style={{ borderRadius: 5, overflow: 'hidden' }}>
+                <Touchable rippleEffect='white' style={styles.textButton} onPress={handlePress}>
+                    <TextRegular style={styles.generateButton}>Generate</TextRegular>
+                </Touchable>
+            </View>
         </View>
     )
 }
 
-export default EmailView
+export { EmailView }
 
 const styles = StyleSheet.create({
     container: {

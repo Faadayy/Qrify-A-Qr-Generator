@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StyleProp, StyleSheet, ViewStyle } from 'react-native'
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 interface Props {
   children: React.ReactNode
   style?: StyleProp<ViewStyle>

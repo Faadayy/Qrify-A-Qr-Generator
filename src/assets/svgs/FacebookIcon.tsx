@@ -1,8 +1,7 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-const FacebookIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const FacebookIcon = (props: SvgProps) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-5 0 20 20" {...props}
@@ -16,4 +15,4 @@ const FacebookIcon = (props: any) => (
         />
     </Svg>
 )
-export default FacebookIcon
+export { FacebookIcon }

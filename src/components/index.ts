@@ -1,4 +1,3 @@
-export * from './Button';
 export * from './FullScreenView';
 export * from './Icon';
 export * from './Text';
@@ -8,4 +7,3 @@ export * from './Touchable';
 export * from './Toast';
 export * from './Modal';
 export * from './PhoneInput';
-export * from './Swiper';

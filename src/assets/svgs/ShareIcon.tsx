@@ -23,4 +23,4 @@ const ShareIcon = (props: SvgProps) => (
     </Svg>
 )
 
-export default ShareIcon
+export { ShareIcon }

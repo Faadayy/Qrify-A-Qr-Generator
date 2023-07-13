@@ -1,4 +1,4 @@
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 import React from 'react'
 import {
   Animated,

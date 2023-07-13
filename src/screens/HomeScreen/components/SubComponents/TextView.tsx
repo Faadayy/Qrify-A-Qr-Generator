@@ -44,14 +44,16 @@ const TextView = ({ handleLink, setloading }) => {
                     setHeight(event.nativeEvent.contentSize.height);
                 }}
             />
-            <TouchableOpacity style={[styles.textButton, { height: heightPercentageToDP(6) }]} onPress={handlePress}>
-                <TextRegular style={styles.generateButton}>Generate</TextRegular>
-            </TouchableOpacity>
+            <View style={{ borderRadius: 5, overflow: 'hidden' }}>
+                <Touchable rippleEffect='white' style={styles.textButton} onPress={handlePress}>
+                    <TextRegular style={styles.generateButton}>Generate</TextRegular>
+                </Touchable>
+            </View>
         </View>
     )
 }
 
-export default TextView
+export { TextView }
 
 const styles = StyleSheet.create({
     container: {

@@ -1,9 +1,8 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
-const LinkedInIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const LinkedInIcon = (props: SvgProps) => (
     <Svg
-        xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         height={RFValue(27)}
@@ -18,4 +17,4 @@ const LinkedInIcon = (props: any) => (
         />
     </Svg>
 )
-export default LinkedInIcon
+export { LinkedInIcon }

@@ -1,9 +1,9 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
+import Svg, { Path, SvgProps } from "react-native-svg"
 /* SVGR has dropped some elements not supported by react-native-svg: title */
-const MessageIcon = (props: any) => (
-    <Svg xmlns="http://www.w3.org/2000/svg"
+const MessageIcon = (props: SvgProps) => (
+    <Svg
         width={RFValue(25)}
         height={RFValue(25)}
         viewBox="0 0 20 20" {...props}>
@@ -14,4 +14,4 @@ const MessageIcon = (props: any) => (
         />
     </Svg>
 )
-export default MessageIcon
+export { MessageIcon }

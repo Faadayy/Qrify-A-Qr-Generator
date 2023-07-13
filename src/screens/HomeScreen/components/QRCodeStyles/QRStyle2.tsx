@@ -1,10 +1,8 @@
 
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import QRCodeStyled from 'react-native-qrcode-styled'
-import { TextBold, Touchable } from 'components'
 import { RFValue } from 'react-native-responsive-fontsize'
-import { widthPercentageToDP } from 'react-native-responsive-screen'
 
 const QRStyles2 = ({ value }) => {
 

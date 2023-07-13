@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { FullScreenView, TextBold } from 'components'
-import LineIcon from 'assets/svgs/LineIcon'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import { RFValue } from 'react-native-responsive-fontsize'
+import { LineIcon } from 'assets'
 
 const ScanScreen = () => {
 
@@ -27,7 +27,6 @@ export { ScanScreen }
 
 const styles = StyleSheet.create({
     headerView: {
-        // alignSelf: 'center',
         marginVertical: heightPercentageToDP(2),
         flexDirection: 'row',
     },

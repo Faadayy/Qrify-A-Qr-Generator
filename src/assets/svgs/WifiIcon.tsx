@@ -1,9 +1,8 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-const WifiIcon = (props: any) => (
-    <Svg xmlns="http://www.w3.org/2000/svg"
+import Svg, { Path, SvgProps } from "react-native-svg"
+const WifiIcon = (props: SvgProps) => (
+    <Svg
         width={RFValue(25)}
         height={RFValue(25)}
         viewBox="0 -1.5 13 13" {...props}>
@@ -14,4 +13,4 @@ const WifiIcon = (props: any) => (
         />
     </Svg>
 )
-export default WifiIcon
+export { WifiIcon }

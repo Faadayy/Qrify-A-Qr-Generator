@@ -1,12 +1,11 @@
 import * as React from "react"
 import { RFValue } from "react-native-responsive-fontsize"
-import Svg, { Path } from "react-native-svg"
-/* SVGR has dropped some elements not supported by react-native-svg: title */
-const TwitterIcon = (props: any) => (
+import Svg, { Path, SvgProps } from "react-native-svg"
+const TwitterIcon = (props: SvgProps) => (
     <Svg
         height={RFValue(20)}
         width={RFValue(20)}
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 20 20" {...props}>
+        viewBox="0 -2 20 20" {...props}>
         <Path
             fill="#fff"
             fillRule="evenodd"
@@ -14,4 +13,4 @@ const TwitterIcon = (props: any) => (
         />
     </Svg>
 )
-export default TwitterIcon
+export { TwitterIcon }

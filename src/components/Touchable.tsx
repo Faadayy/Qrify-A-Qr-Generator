@@ -1,4 +1,4 @@
-import Colors from 'constants/Colors'
+import Colors from 'helpers/Colors'
 import React from 'react'
 import {
   StyleProp,
@@ -26,14 +26,15 @@ const Touchable = ({
 }: Props) =>
   Platform.OS === 'android' ? (
     <TouchableNativeFeedback
-      style={style}
       {...rest}
       background={TouchableNativeFeedback.Ripple(
         rippleEffect ?? Colors.ui.rippleEffect,
         false,
       )}
       useForeground={useForeground}>
-      {children}
+      <View style={style}>
+        {children}
+      </View>
     </TouchableNativeFeedback>
   ) : (
     <TouchableOpacity style={style} {...rest} >

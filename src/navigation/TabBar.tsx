@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View, TouchableWithoutFeedback, Animated, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, View, Animated, Dimensions } from 'react-native';
 import { TextBold } from 'components';
-import GenerateIcon from 'assets/svgs/GenerateIcon';
-
-import { Text, TouchableOpacity } from 'react-native';
-import SettingsIcon from 'assets/svgs/SettingsIcon';
+import { TouchableOpacity } from 'react-native';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { RFValue } from 'react-native-responsive-fontsize';
-import ScanIcon from 'assets/svgs/ScanIcon';
+import { GenerateIcon, ScanIcon, SettingsIcon } from 'assets';
 
 const { width } = Dimensions.get('window')
 const MARGIN = 16;
