@@ -7062,6 +7062,11 @@ react-native-gradle-plugin@^0.71.19:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.19.tgz#3379e28341fcd189bc1f4691cefc84c1a4d7d232"
   integrity sha512-1dVk9NwhoyKHCSxcrM6vY6cxmojeATsBobDicX0ZKr7DgUF2cBQRTKsimQFvzH8XhOVXyH8p4HyDSZNIFI8OlQ==
 
+react-native-hole-view@^3.0.0-alpha3:
+  version "3.0.0-alpha3"
+  resolved "https://registry.yarnpkg.com/react-native-hole-view/-/react-native-hole-view-3.0.0-alpha3.tgz#8eca30b04b3ef7abd3360b0b76d617eefea648a1"
+  integrity sha512-GzKsirikGaDdynN/IA6tM2gfTZVvKOa4ISiKGcd34K3N/DrR0SLB62SOFRhhOisCcvTFZOegb4jyTQLg2+pCzg==
+
 react-native-iphone-x-helper@^1.0.3, react-native-iphone-x-helper@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
@@ -7171,6 +7176,11 @@ react-native-view-shot@^3.7.0:
   integrity sha512-tQruLNjs7Ee/p6xUgJqF6glnatHaq/UqaIQ6KdYIFG0+XpUZdhqmEM4WMLsYfayfFEhdlF86G1S3eXMOfDNzFg==
   dependencies:
     html2canvas "^1.4.1"
+
+react-native-vision-camera@^2.15.4:
+  version "2.15.4"
+  resolved "https://registry.yarnpkg.com/react-native-vision-camera/-/react-native-vision-camera-2.15.4.tgz#821f0505fc8c63b87c1ae4697d2bb4f670333576"
+  integrity sha512-SJXSWH1pu4V3Kj4UuX/vSgOxc9d5wb5+nHqBHd+5iUtVyVLEp0F6Jbbaha7tDoU+kUBwonhlwr2o8oV6NZ7Ibg==
 
 react-native@0.71.10:
   version "0.71.10"
@@ -8265,6 +8275,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+vision-camera-code-scanner@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vision-camera-code-scanner/-/vision-camera-code-scanner-0.2.0.tgz#8adc0694319a17f6a95f6dfacc02ab7ac29b4742"
+  integrity sha512-H5hVkXfbIcGdg9YlhuS8Y/xDX5e32Vo6eK5FyDQsE9AGVjlqEHMmSLHZg7BX8UUm4ADmiAZc8wzc4n8TUqGr0g==
 
 vlq@^1.0.0:
   version "1.0.1"

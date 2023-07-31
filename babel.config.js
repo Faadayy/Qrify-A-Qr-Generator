@@ -11,11 +11,14 @@ module.exports = {
         alias: {
           components: './src/components',
           // constantss: './src/constants',
-        }
-      }
+        },
+      },
     ],
-    ["react-native-reanimated/plugin", {
-      "relativeSourceLocation": true
-    }]
-  ]
-}
+    [
+      'react-native-reanimated/plugin',
+      {
+        globals: ['__scanCodes'],
+      },
+    ],
+  ],
+};
